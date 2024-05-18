@@ -26,7 +26,6 @@ const renderCards = (products) => {
     });
     addEventListenerCombo()
 };
-
 const addEventListenerCombo = () => {
     deleteBtns = document.querySelectorAll(".delete-btn");
         deleteBtns.forEach((item) => {
