@@ -75,12 +75,7 @@ const addProduct = () => {
     axios.post("https://api.escuelajs.co/api/v1/products", productToAdd)
 };
 
-const deleteProduct = (id) => {
-    document.getElementById(id).style.display = "none";
-
-    axios.delete(`https://api.escuelajs.co/api/v1/products/${id}`)
-}
-
+import { deleteProduct } from "./delete-axios";
 const editProduct = (id) => {
     
     const title = document.querySelector(".edit-title").value;
