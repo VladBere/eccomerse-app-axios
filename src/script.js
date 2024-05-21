@@ -4,13 +4,12 @@ let editBtns
 
 let editId = null
 
-const trunc = (text, maxLenght) =>
-    text?.length > maxLenght ? text?.substring(0, maxLenght - 3) + "..." : text;
+import { trunc } from "./add-product-axios";
 
 const renderCards = (products) => {
     products.forEach((product) => {
         const cardHTML = ` 
-            <div class="card ${product.id}" id="${product.id}" style="width: 18rem; display: block;">
+            <div class="card ${product.id}" id="${product.id}" style="width: 18rem;height: 280px;display: block;">
             <img src="${product.images[0]}" class="card-img-top" alt="${product.title}" />
                 <div class="card-body">
                     <h5 class="card-title">${product.title}</h5>
@@ -56,58 +55,11 @@ document.querySelector(".add-submit").addEventListener("click", () => {
 const addBtn = document.querySelector("#add-btn");
 const addProductForm = document.querySelector("#add-product-form");
 
-const addProduct = () => {
-    const title = document.querySelector("#product-title").value;
-    const description = document.querySelector("#product-descr").value;
-    const price = +document.querySelector("#product-price").value;
-    const categoryId = +document.querySelector("#product-category").value;
+import { addProduct } from "./add-product-axios";
 
-    const productToAdd = {
-        title,
-        description,
-        price,
-        categoryId,
-        images: ["https://placeimg.com/640/480/any"],
-    };
-
-    renderCards([productToAdd])
-
-    axios.post("https://api.escuelajs.co/api/v1/products", productToAdd)
-};
+import { editProduct } from "./edit-axios";
 
 import { deleteProduct } from "./delete-axios";
-const editProduct = (id) => {
-    
-    const title = document.querySelector(".edit-title").value;
-    const description = document.querySelector(".edit-descr").value;
-    const price = +document.querySelector(".edit-price").value;
-    const categoryId = +document.querySelector(".edit-category").value;
-
-    const editedProduct = {
-        title,
-        description,
-        price,
-        categoryId,
-        images: ["https://placeimg.com/640/480/any"],
-    }
-
-    document.getElementById(id).innerHTML = ` 
-        <div class="card ${id}" id="${id}" style="width: 18rem; height: 280px; display: block;">
-        <img src="${editedProduct.images[0]}" class="card-img-top" alt="${editedProduct.title}" />
-            <div class="card-body">
-                <h5 class="card-title">${editedProduct.title}</h5>
-                <p class="card-text">
-                    ${trunc(editedProduct.description, 100)}
-                </p>
-                <button class="btn btn-primary delete-btn" data-btn="${id}"> Delete </button>
-                <button class="btn btn-primary edit-btn" data-btn="${id}"> Edit </button>
-            </div>
-        </div>`
-        
-    addEventListenerCombo()
-
-    axios.put(`https://api.escuelajs.co/api/v1/products/${id}`, editedProduct)
-}
 
 document.querySelector(".edit-sumbit").addEventListener("click", () => {
     editForm.style.display = "none"
