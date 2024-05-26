@@ -6,25 +6,8 @@ let editId = null
 
 import { trunc } from "./products/add-product-axios";
 
-const renderCards = (products) => {
-    products.forEach((product) => {
-        const cardHTML = ` 
-            <div class="card ${product.id}" id="${product.id}" style="width: 18rem;min-height: 280px;display: block;">
-            <img src="${product.images[0]}" class="card-img-top" alt="${product.title}" />
-                <div class="card-body">
-                    <h5 class="card-title">${product.title}</h5>
-                    <p class="card-text">
-                       ${trunc(product.description, 100)}
-                    </p>
-                    <button class="btn btn-danger delete-btn" data-btn="${product.id}"> <img src="../icons/trash.svg" alt=""> </button>
-                    <button class="btn btn-warning edit-btn" data-btn="${product.id}"> <img src="../icons/edit.svg" alt=""> </button>
-                </div>
-            </div>`;
+import { renderCards } from "./products/add-product-axios";
 
-        cardList.insertAdjacentHTML("beforeend", cardHTML);
-    });
-    addEventListenerCombo()
-};
 const addEventListenerCombo = () => {
     deleteBtns = document.querySelectorAll(".delete-btn");
         deleteBtns.forEach((item) => {
