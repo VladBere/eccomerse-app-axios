@@ -9,7 +9,7 @@ import { trunc } from "./add-product-axios";
 const renderCards = (products) => {
     products.forEach((product) => {
         const cardHTML = ` 
-            <div class="card ${product.id}" id="${product.id}" style="width: 18rem;height: 280px;display: block;">
+            <div class="card ${product.id}" id="${product.id}" style="width: 18rem;min-height: 280px;display: block;">
             <img src="${product.images[0]}" class="card-img-top" alt="${product.title}" />
                 <div class="card-body">
                     <h5 class="card-title">${product.title}</h5>
