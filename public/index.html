@@ -11,7 +11,7 @@
             crossorigin="anonymous" />
     </head>
     <body>
-        <div class="w-75 mx-auto p-5">
+        <div id="product-btns" class="w-75 mx-auto p-5">
             <button
                 id="add-btn"
                 type="button"
@@ -20,7 +20,50 @@
                 data-bs-target="#exampleModal">
                 Add new product
             </button>
+            <button id="show-users" type="button" class="btn btn-primary">Show users</button>
         </div>
+        <div id="user-btns" style="display: none;" class="w-75 mx-auto p-5">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add new user
+              </button>
+            <button id="show-products" type="button" class="btn btn-primary">Show products</button>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add user</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="user-add-form">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input type="email" class="form-control" id="add-user-email" aria-describedby="emailHelp">
+                          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="add-user-password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="add-user-name">
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Role</label>
+                            <select class="form-select" aria-label="Default select example" id="add-user-role">
+                                <option value="customer">Customer</option>
+                                <option value="admin">Admin</option>
+                              </select>
+                                
+                          </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                </div>
+              </div>
+            </div>
+          </div>
         <div class="close">
             <div
             class="modal fade"
@@ -103,11 +146,11 @@
                         <form id="add-product-form">
                             <div class="mb-3">
                                 <label for="product-title" class="form-label">Product title</label>
-                                <input type="text"class="form-control edit-title"id="product-title" />
+                                <input type="text"class="form-control edit-title"/>
                             </div>
                             <div class="mb-3">
                                 <label for="product-descr" class="form-label">Product description</label>
-                                <input type="text"class="form-control edit-descr"id="product-descr" />
+                                <input type="text"class="form-control edit-descr" />
                             </div>
                             <div class="mb-3">
                                 <label for="product-price" class="form-label"
@@ -116,12 +159,12 @@
                                 <input
                                     type="text"
                                     class="form-control edit-price"
-                                    id="product-price" />
+                                     />
                             </div>
                                 <label for="product-category" class="form-label">Product category</label>
                                 <select
                                     class="form-select mb-3 edit-category"
-                                    id="product-category">
+                                    >
                                     <option value="2">Electronics</option>
                                     <option value="3">Furniture</option>
                                     <option value="4">Shoes</option>
@@ -135,6 +178,40 @@
                 </div>
             </div>
         </form>
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="user-edit-form">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input type="email" class="form-control" id="edit-user-email" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="edit-user-password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="edit-user-name">
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Role</label>
+                            <select class="form-select" aria-label="Default select example" id="edit-user-role">
+                                <option value="customer">Customer</option>
+                                <option value="admin">Admin</option>
+                              </select>
+                          </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                </div>
+              </div>
+            </div>
+          </div>
         <div
             class="w-75 mx-auto p-5 d-flex align-items-center justify-content-center gap-2 flex-wrap"
             id="card-list"></div>

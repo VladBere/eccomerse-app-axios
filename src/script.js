@@ -4,7 +4,7 @@ let editBtns
 
 let editId = null
 
-import { trunc } from "./add-product-axios";
+import { trunc } from "./products/add-product-axios";
 
 const renderCards = (products) => {
     products.forEach((product) => {
@@ -16,8 +16,8 @@ const renderCards = (products) => {
                     <p class="card-text">
                        ${trunc(product.description, 100)}
                     </p>
-                    <button class="btn btn-primary delete-btn" data-btn="${product.id}"> Delete </button>
-                    <button class="btn btn-primary edit-btn" data-btn="${product.id}"> Edit </button>
+                    <button class="btn btn-danger delete-btn" data-btn="${product.id}"> <img src="../icons/trash.svg" alt=""> </button>
+                    <button class="btn btn-warning edit-btn" data-btn="${product.id}"> <img src="../icons/edit.svg" alt=""> </button>
                 </div>
             </div>`;
 
@@ -41,8 +41,14 @@ const addEventListenerCombo = () => {
 
 let deleteBtns = document.querySelectorAll(".delete-btn")
 
-axios.get('https://api.escuelajs.co/api/v1/products?offset=0')
-.then(response => renderCards(response.data));
+axios.get('https://api.escuelajs.co/api/v1/products?offset=0').then(response => renderCards(response.data));
+
+const getProducts = () => {
+    cardList.innerHTML = ""
+    axios.get('https://api.escuelajs.co/api/v1/products?offset=0').then(response => renderCards(response.data));
+    document.querySelector('#user-btns').style.display = "none";
+    document.querySelector("#product-btns").style.display = "block";
+}
 
 document.querySelector(".edit-close").addEventListener("click", () => editForm.style.display = "none")
 document.querySelector(".add-submit").addEventListener("click", () => {
@@ -55,14 +61,34 @@ document.querySelector(".add-submit").addEventListener("click", () => {
 const addBtn = document.querySelector("#add-btn");
 const addProductForm = document.querySelector("#add-product-form");
 
-import { addProduct } from "./add-product-axios";
+import { addProduct } from "./products/add-product-axios";
 
-import { editProduct } from "./edit-axios";
+import { editProduct } from "./products/edit-axios";
 
-import { deleteProduct } from "./delete-axios";
+import { deleteProduct } from "./products/delete-axios";
 
 document.querySelector(".edit-sumbit").addEventListener("click", () => {
     editForm.style.display = "none"
+})
+
+import { getUsers } from "./users/get-users";
+import { renderUsers } from "./users/get-users";
+
+document.querySelector("#show-users").addEventListener("click", getUsers)
+document.querySelector("#show-products").addEventListener("click", getProducts)
+
+import { addUser } from "./users/add-user";
+
+import { editUser } from "./users/edit-user";
+import { editUserId } from "./users/get-users";
+
+document.querySelector("#user-add-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    addUser()
+})
+document.querySelector("#user-edit-form").addEventListener("submit", (e) => {
+    e.preventDefault()
+    editUser(editUserId)
 })
 
 addProductForm.addEventListener("submit", (e) => {

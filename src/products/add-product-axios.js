@@ -1,4 +1,4 @@
-const cardList = document.querySelector("#card-list");
+export const cardList = document.querySelector("#card-list");
 
 export const addProduct = () => {
     const title = document.querySelector("#product-title").value;
@@ -29,8 +29,8 @@ export const renderCards = (products) => {
                     <p class="card-text">
                        ${trunc(product.description, 100)}
                     </p>
-                    <button class="btn btn-primary delete-btn" data-btn="${product.id}"> Delete </button>
-                    <button class="btn btn-primary edit-btn" data-btn="${product.id}"> Edit </button>
+                    <button class="btn btn-danger delete-btn" data-btn="${product.id}"> <img src="../icons/trash.svg" alt=""> </button>
+                    <button class="btn btn-warning edit-btn" data-btn="${product.id}"> <img src="../icons/edit.svg" alt=""> </button>
                 </div>
             </div>`;
 
