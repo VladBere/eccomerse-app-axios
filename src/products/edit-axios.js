@@ -1,4 +1,4 @@
-export const editProduct = (id) => {
+export const editProduct = async (id) => {
     
     const title = document.querySelector(".edit-title").value;
     const description = document.querySelector(".edit-descr").value;
@@ -10,7 +10,7 @@ export const editProduct = (id) => {
         description,
         price,
         categoryId,
-        images: ["https://placeimg.com/640/480/any"],
+        images: ["https://hotline.ua/img/tx/158/1581421235.jpg"],
     }
 
     document.getElementById(id).innerHTML = ` 

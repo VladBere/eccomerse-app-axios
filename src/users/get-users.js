@@ -28,7 +28,7 @@ export const renderUsers = (users) => {
     users.forEach((user) => {
         const cardHTML = `
         <div class="card" id=${user.id} style="width: 18rem;">
-            <img src="${user.avatar}" class="card-img-top" alt="${user.name}">
+            <img src="${user.avatar}" style="height: 280px" class="card-img-top" alt="${user.name}">
             <div class="card-body">
                 <h5 class="card-title">${user.name}</h5>
                 <p class="card-text">${user.role}</p>

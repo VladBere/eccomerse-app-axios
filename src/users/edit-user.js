@@ -12,7 +12,7 @@ export const editUser = async (id) => {
         name,
         password,
         role,
-        avatar: "https://static9.depositphotos.com/1000956/1135/i/450/depositphotos_11352730-stock-photo-square-apple.jpg"
+        avatar: "https://i.pinimg.com/736x/a9/4c/f5/a94cf541b61bcd310827ab03147c22a6.jpg"
     }
 
     await axios.put(`https://api.escuelajs.co/api/v1/users/${id}`, editedUser)

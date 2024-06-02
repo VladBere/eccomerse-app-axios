@@ -20,9 +20,10 @@ export const addProduct = () => {
 };
 
 export const renderCards = (products) => {
+    cardList.innerHTML = ""
     products.forEach((product) => {
         const cardHTML = ` 
-            <div class="card ${product.id}" id="${product.id}" style="width: 18rem;min-height: 280px;display: block;">
+            <div class="card ${product.id}" id="${product.id}" style="width: 18rem;min-height: 530px;display: block;">
             <img src="${product.images[0]}" class="card-img-top" alt="${product.title}" />
                 <div class="card-body">
                     <h5 class="card-title">${product.title}</h5>
@@ -59,6 +60,8 @@ export let deleteBtns = document.querySelectorAll(".delete-btn")
 export let editBtns
 export const editForm = document.querySelector(".edit-form")
 export let editId 
+
+import { deleteProduct } from "./delete-axios";
 
 export const addEventListenerCombo = () => {
     deleteBtns = document.querySelectorAll(".delete-btn");

@@ -12,7 +12,7 @@ export const addUser = () => {
         name,
         password,
         role,
-        avatar: "https://static9.depositphotos.com/1000956/1135/i/450/depositphotos_11352730-stock-photo-square-apple.jpg"
+        avatar: "https://i.pinimg.com/736x/a9/4c/f5/a94cf541b61bcd310827ab03147c22a6.jpg"
     }
 
     renderUsers([userToAdd])
@@ -23,4 +23,5 @@ export const addUser = () => {
     document.querySelector("#editModal").style.display = "none";
     document.querySelector("body").classList.remove("modal-open")
     document.querySelector("body").style.overflow = "auto";
+    document.querySelector("#addUserModal").style.display = "none";
 }

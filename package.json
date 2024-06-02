@@ -10,7 +10,9 @@
     "axios": "^1.7.2"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "cssnano": "^7.0.1",
+    "parcel-bundler": "^1.12.5",
+    "postcss": "^8.4.38"
   },
   "main": "index.js",
   "author": "",
